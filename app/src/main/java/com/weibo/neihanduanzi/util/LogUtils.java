@@ -1,4 +1,4 @@
-package com.blankj.utilcode.util;
+package com.weibo.neihanduanzi.util;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -40,7 +40,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import butterknife.internal.Utils;
 
 /**
  * <pre>
