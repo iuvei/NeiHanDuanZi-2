@@ -25,3 +25,13 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext{
+    retrofit2_version = '2.3.0'
+    rxbinding2_version = '2.0.0'
+    rxlifecycle2_version = '2.2.1'
+    glide_version = '4.4.0'
+    dagger2_version = '2.13'
+    ijkplayer_version = '0.8.4'
+    DanmuFlameMaster_version = '0.9.16'
+}
