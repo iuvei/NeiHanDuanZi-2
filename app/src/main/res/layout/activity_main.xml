@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.weibo.neihanduanzi.activity.MainActivity"
-    tools:layout_editor_absoluteY="25dp">
+    android:orientation="vertical"
+    tools:context="com.weibo.neihanduanzi.activity.MainActivity">
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="精选"
-        tools:layout_editor_absoluteX="192dp"
-        tools:layout_editor_absoluteY="0dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
 
-    <Button
-        android:layout_width="65dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:text="关注"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-</android.support.constraint.ConstraintLayout>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="精选" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="关注" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
