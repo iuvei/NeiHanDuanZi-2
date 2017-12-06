@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+
 /**
  * Created by wxjqgt on 2017/12/6.
  */
