@@ -1,0 +1,16 @@
+App¸üÐÂ
+GET http://ichannel.snssdk.com/check_version/v6/?update_version_code=5551&manifest_version_code=555&iid=19019394231&device_id=42199844861&ac=wifi&channel=tengxun&aid=7&app_name=joke_essay&version_code=555&version_name=5.5.5&device_platform=android&ssmix=a&device_type=GT-P5210&device_brand=samsung&os_api=22&os_version=5.1.1&uuid=352419011349723&openudid=13497f685f27e418&manifest_version_code=555&resolution=720*1280&dpi=240&update_version_code=5551 HTTP/1.1
+Accept-Encoding: gzip
+Host: ichannel.snssdk.com
+Connection: Keep-Alive
+Cookie: qh[360]=1; install_id=19019394231; ttreq=1$f89663eda76849be937c1772052400287ac757ed; uuid=352419011349723
+User-Agent: okhttp/2.7.4
+
+Ê×Ò³
+GET http://is.snssdk.com/neihan/service/tabs/?essence=1&iid=19019394231&device_id=42199844861&ac=wifi&channel=tengxun&aid=7&app_name=joke_essay&version_code=555&version_name=5.5.5&device_platform=android&ssmix=a&device_type=GT-P5210&device_brand=samsung&os_api=22&os_version=5.1.1&uuid=352419011349723&openudid=13497f685f27e418&manifest_version_code=555&resolution=720*1280&dpi=240&update_version_code=5551 HTTP/1.1
+Accept-Encoding: gzip
+Host: is.snssdk.com
+Connection: Keep-Alive
+Cookie: qh[360]=1; install_id=19019394231; ttreq=1$f89663eda76849be937c1772052400287ac757ed; uuid=352419011349723
+User-Agent: okhttp/2.7.4
+
