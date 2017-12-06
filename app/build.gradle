@@ -41,7 +41,7 @@ dependencies {
     })
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    //squareup
+    //retrofit2
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit2_version"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit2_version"
