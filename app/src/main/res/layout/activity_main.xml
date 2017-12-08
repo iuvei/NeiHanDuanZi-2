@@ -28,28 +28,20 @@
             android:orientation="horizontal">
 
             <com.weibo.neihanduanzi.widget.Nav_RadioButton
+                android:id="@+id/rb_featured"
+                style="@style/top_bar_radiobutton_style"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:button="@null"
                 android:checked="true"
-                android:gravity="center"
-                android:text="精选"
-                android:id="@+id/rb_featured"
-                android:clickable="true"
-                android:textColor="@drawable/top_nav_radiobutton_background" />
+                android:layout_weight="1"
+                android:text="精选" />
 
             <com.weibo.neihanduanzi.widget.Nav_RadioButton
+                android:id="@+id/rb_attention"
+                style="@style/top_bar_radiobutton_style"
                 android:layout_width="0dp"
-                android:clickable="true"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/colorPrimary"
-                android:button="@null"
-                android:id="@+id/rb_attention"
-                android:textColor="@drawable/top_nav_radiobutton_background"
-                android:gravity="center"
                 android:text="关注" />
 
         </RadioGroup>

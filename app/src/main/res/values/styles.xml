@@ -8,4 +8,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="top_bar_radiobutton_style">
+        <item name="android:clickable">true</item>
+        <item name="android:textColor">@drawable/top_nav_radiobutton_background</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:background">@color/colorPrimary</item>
+
+    </style>
+
 </resources>
