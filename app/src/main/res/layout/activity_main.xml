@@ -8,41 +8,49 @@
     tools:context="com.weibo.neihanduanzi.activity.MainActivity">
 
     <RelativeLayout
+        android:id="@+id/rl_topbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary">
 
         <ImageView
-            android:paddingLeft="5dp"
-            android:layout_centerVertical="true"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/default_round_head"
-            />
+            android:layout_centerVertical="true"
+            android:paddingLeft="5dp"
+            android:src="@mipmap/default_round_head" />
 
-        <LinearLayout
+        <RadioGroup
+            android:id="@+id/rg_top_nav"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_centerInParent="true"
             android:orientation="horizontal">
 
-            <Button
-                android:background="@color/colorPrimary"
-                android:gravity="center"
+            <com.weibo.neihanduanzi.widget.Nav_RadioButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="精选" />
+                android:background="@color/colorPrimary"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="精选"
+                android:id="@+id/rb_featured"
+                android:textColor="@drawable/top_nav_radiobutton_background" />
 
-            <Button
-                android:background="@color/colorPrimary"
-                android:gravity="center"
+            <com.weibo.neihanduanzi.widget.Nav_RadioButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:button="@null"
+                android:id="@+id/rb_attention"
+                android:textColor="@drawable/top_nav_radiobutton_background"
+                android:gravity="center"
                 android:text="关注" />
 
-        </LinearLayout>
+        </RadioGroup>
 
     </RelativeLayout>
 

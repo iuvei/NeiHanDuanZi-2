@@ -1,9 +1,13 @@
 package com.weibo.neihanduanzi.activity;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 
+import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
+
+import io.reactivex.functions.Consumer;
 
 /**
  * Created by wxjqgt on 2017/12/6.
@@ -11,11 +15,41 @@ import com.weibo.neihanduanzi.R;
 
 public class MainActivity extends BaseActivity {
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    private RelativeLayout rl_topbar;
+    private RadioGroup rg_top_nav;
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
     }
 
+    @Override
+    protected void findView() {
+        rl_topbar = findViewById(R.id.rl_topbar);
+        rg_top_nav = findViewById(R.id.rg_top_nav);
+    }
+
+    @Override
+    protected void listener() {
+        RxRadioGroup.checkedChanges(rg_top_nav)
+                .compose(this.<Integer>bindToLifecycle())
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        int id = integer.intValue();
+                        switch (id){
+                            case R.id.rb_featured:
+                                Snackbar.make(rl_topbar,"hhh",Snackbar.LENGTH_LONG).show();
+                                //SnackbarUtils.with(rg_top_nav).setMessage("featured").setDuration(SnackbarUtils.LENGTH_SHORT).show();
+                                break;
+                            case R.id.rb_attention:
+                                //SnackbarUtils.with(rg_top_nav).setMessage("attention").setDuration(SnackbarUtils.LENGTH_SHORT).show();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+
+    }
 }

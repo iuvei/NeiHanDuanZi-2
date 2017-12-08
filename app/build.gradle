@@ -3,11 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.weibo.neihanduanzi"
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -28,40 +28,64 @@ android {
             path "CMakeLists.txt"
         }
     }
+    buildToolsVersion '26.0.2'
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation ('com.android.support.test:runner:0.5', {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile rootProject.ext.junit
+    androidTestCompile rootProject.ext.supportTestRunner
+    androidTestCompile rootProject.ext.supportTestEspresso
+    compile rootProject.ext.kotlinStdlib
+    //support
+    compile rootProject.ext.supportAppCompat
+    compile rootProject.ext.supportDesign
+    compile rootProject.ext.constraintLayout
+    //retrofit2
+    compile rootProject.ext.retrofit_adapter_rxjava
+    compile rootProject.ext.retrofit_converter_gson
+    //rxpermissions2
+    compile rootProject.ext.rxpermissions
+    //rxbinding2
+    compile("com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rootProject.rxbinding2_version", {
+        exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
+        exclude group: 'io.reactivex.rxjava2', module: 'rxandroid'
         exclude group: 'com.android.support', module: 'appcompat-v7'
     })
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraint_layout_version"
-    //retrofit2
-    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2_version"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit2_version"
-    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit2_version"
-    //rxpermissions2
-    implementation "com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar"
-    //rxbinding2
-    implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rootProject.rxbinding2_version"
-    implementation "com.jakewharton.rxbinding2:rxbinding-design:$rootProject.rxbinding2_version"
-    implementation "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:$rootProject.rxbinding2_version"
+    compile("com.jakewharton.rxbinding2:rxbinding-design:$rootProject.rxbinding2_version", {
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.jakewharton.rxbinding2', module: 'rxbinding'
+    })
+    compile("com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:$rootProject.rxbinding2_version", {
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+        exclude group: 'com.jakewharton.rxbinding2', module: 'rxbinding'
+    })
     //rxlifecycle2
-    implementation "com.trello.rxlifecycle2:rxlifecycle-components:$rootProject.rxlifecycle2_version"
+    compile("com.trello.rxlifecycle2:rxlifecycle-components:$rootProject.rxlifecycle2_version", {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
+    })
     //glide
-    implementation "com.github.bumptech.glide:glide:$rootProject.glide_version"
+    compile "com.github.bumptech.glide:glide:$rootProject.glide_version"
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glide_version"
     //dagger2
-    implementation "com.google.dagger:dagger-android:$rootProject.dagger2_version"
-    implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2_version"
-    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.dagger2_version"
+    compile("com.google.dagger:dagger-android:$rootProject.dagger2_version", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile("com.google.dagger:dagger-android-support:$rootProject.dagger2_version", {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-fragment'
+    })
+    annotationProcessor rootProject.ext.dagger_android_processor
     //bilibili ijkplayer
-    implementation "tv.danmaku.ijk.media:ijkplayer-java:$rootProject.ijkplayer_version"
-    implementation "tv.danmaku.ijk.media:ijkplayer-armv7a:$rootProject.ijkplayer_version"
+    compile rootProject.ext.ijkplayer_java
+    compile rootProject.ext.ijkplayer_armv7a
+
     //bilibili DanmuFlameMaster
-    implementation "com.github.ctiao:DanmakuFlameMaster:$rootProject.DanmuFlameMaster_version"
-    implementation "com.github.ctiao:ndkbitmap-armv7a:$rootProject.DanmuFlameMaster_version"
+    compile rootProject.ext.danmuFlameMaster
+    compile rootProject.ext.ndkbitmap_armv7a
+    //rxjava2
+    compile rootProject.ext.rxJava
+    compile rootProject.ext.rxAndroid
 }
