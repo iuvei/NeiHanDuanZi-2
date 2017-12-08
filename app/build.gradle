@@ -32,38 +32,38 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:support-v4:27.+'
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile rootProject.ext.junit
-    androidTestCompile rootProject.ext.supportTestRunner
-    androidTestCompile rootProject.ext.supportTestEspresso
-    compile rootProject.ext.kotlinStdlib
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation rootProject.ext.junit
+    androidTestImplementation rootProject.ext.supportTestRunner
+    androidTestImplementation rootProject.ext.supportTestEspresso
+    implementation rootProject.ext.kotlinStdlib
     //support
-    compile rootProject.ext.supportAppCompat
-    compile rootProject.ext.supportDesign
-    compile rootProject.ext.constraintLayout
+    implementation rootProject.ext.supportAppCompat
+    implementation rootProject.ext.supportDesign
+    implementation rootProject.ext.constraintLayout
     //retrofit2
-    compile rootProject.ext.retrofit_adapter_rxjava
-    compile rootProject.ext.retrofit_converter_gson
+    implementation rootProject.ext.retrofit_adapter_rxjava
+    implementation rootProject.ext.retrofit_converter_gson
     //rxpermissions2
-    compile rootProject.ext.rxpermissions
+    implementation rootProject.ext.rxpermissions
     //rxbinding2
-    compile rootProject.ext.rxbinding2_appcompat
-    compile rootProject.ext.rxbinding2_recyclerview
-    compile rootProject.ext.rxbinding2_design
+    implementation rootProject.ext.rxbinding2_appcompat
+    implementation rootProject.ext.rxbinding2_recyclerview
+    implementation rootProject.ext.rxbinding2_design
     //rxlifecycle2
-    compile rootProject.ext.rxlifecycle
+    implementation rootProject.ext.rxlifecycle
     //glide
-    compile rootProject.ext.glide
+    implementation rootProject.ext.glide
     annotationProcessor rootProject.ext.glide_compiler
     //dagger2
-    compile rootProject.ext.dagger_android
+    implementation rootProject.ext.dagger_android
     annotationProcessor rootProject.ext.dagger_android_processor
     //bilibili ijkplayer
-    compile rootProject.ext.ijkplayer_java
-    compile rootProject.ext.ijkplayer_armv7a
-
+    implementation rootProject.ext.ijkplayer_java
+    implementation rootProject.ext.ijkplayer_armv7a
     //bilibili DanmuFlameMaster
-    compile rootProject.ext.danmuFlameMaster
-    compile rootProject.ext.ndkbitmap_armv7a
+    implementation rootProject.ext.danmuFlameMaster
+    implementation rootProject.ext.ndkbitmap_armv7a
+    //magicIndicator
+    implementation project(':magicindicator')
 }
