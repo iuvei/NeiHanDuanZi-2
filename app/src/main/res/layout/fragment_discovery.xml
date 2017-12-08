@@ -17,7 +17,7 @@
             android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:paddingLeft="5dp"
-            android:src="@mipmap/ic_discovery_search" />
+            android:src="@mipmap/ic_discovery_search_night" />
 
         <RadioGroup
             android:id="@+id/rg_top_nav"

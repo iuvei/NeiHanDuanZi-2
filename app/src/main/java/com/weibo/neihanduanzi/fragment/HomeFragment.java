@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
 import com.weibo.neihanduanzi.activity.MainActivity;
-import com.weibo.neihanduanzi.adapter.recyclerview.NavViewPagerFragmentAdapter;
+import com.weibo.neihanduanzi.adapter.NavViewPagerFragmentAdapter;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;

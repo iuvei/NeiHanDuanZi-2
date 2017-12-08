@@ -1,4 +1,4 @@
-package com.weibo.neihanduanzi.adapter.recyclerview;
+package com.weibo.neihanduanzi.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
