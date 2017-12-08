@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
 import com.weibo.neihanduanzi.activity.MainActivity;
+import com.weibo.neihanduanzi.adapter.recyclerview.NavViewPagerFragmentAdapter;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -75,6 +76,16 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void loadData() {
+        List<Fragment> fragmentList = new ArrayList<>();
+        fragmentList.add(RecommendFragment.newInstance());
+        fragmentList.add(VideoFragment.newInstance());
+        fragmentList.add(DuanYouXiuFragment.newInstance());
+        fragmentList.add(ImageFragment.newInstance());
+        fragmentList.add(DuanZiFragment.newInstance());
+        fragmentList.add(FeaturedFragment.newInstance());
+        fragmentList.add(SameCityFragment.newInstance());
+        home_viewpager.setAdapter(new NavViewPagerFragmentAdapter(fragmentList,getFragmentManager()));
+
         titleDataList = new ArrayList<>();
         titleDataList.add("推荐");
         titleDataList.add("视频");
@@ -100,7 +111,8 @@ public class HomeFragment extends BaseFragment {
                 colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Snackbar.make(rg_top_nav,"" + index,Snackbar.LENGTH_SHORT).show();
+                        home_viewpager.setCurrentItem(index);
+                        Snackbar.make(rg_top_nav, "" + index, Snackbar.LENGTH_SHORT).show();
                     }
                 });
                 return colorTransitionPagerTitleView;
