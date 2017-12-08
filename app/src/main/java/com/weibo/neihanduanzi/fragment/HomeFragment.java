@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.RadioGroup;
 
@@ -106,6 +107,7 @@ public class HomeFragment extends BaseFragment {
             public IPagerTitleView getTitleView(Context context, final int index) {
                 ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
                 colorTransitionPagerTitleView.setNormalColor(Color.GRAY);
+                colorTransitionPagerTitleView.setGravity(Gravity.CENTER);
                 colorTransitionPagerTitleView.setSelectedColor(Color.BLACK);
                 colorTransitionPagerTitleView.setText(titleDataList.get(index));
                 colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
