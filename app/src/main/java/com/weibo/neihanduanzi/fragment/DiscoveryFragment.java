@@ -6,7 +6,6 @@ import android.widget.RadioGroup;
 
 import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
-import com.weibo.neihanduanzi.util.SnackbarUtils;
 
 import io.reactivex.functions.Consumer;
 
@@ -40,10 +39,8 @@ public class DiscoveryFragment extends BaseFragment {
                         rg_top_nav.check(id);
                         switch (id){
                             case R.id.rb_featured:
-                                SnackbarUtils.with(rg_top_nav).setMessage("featured").setDuration(SnackbarUtils.LENGTH_SHORT).show();
                                 break;
                             case R.id.rb_attention:
-                                SnackbarUtils.with(rg_top_nav).setMessage("attention").setDuration(SnackbarUtils.LENGTH_SHORT).show();
                                 break;
                             default:
                                 break;

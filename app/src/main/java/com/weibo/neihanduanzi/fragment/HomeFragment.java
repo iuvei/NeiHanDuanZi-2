@@ -1,12 +1,29 @@
 package com.weibo.neihanduanzi.fragment;
 
 
+import android.content.Context;
+import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.RadioGroup;
 
 import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
-import com.weibo.neihanduanzi.util.SnackbarUtils;
+import com.weibo.neihanduanzi.activity.MainActivity;
+
+import net.lucode.hackware.magicindicator.MagicIndicator;
+import net.lucode.hackware.magicindicator.ViewPagerHelper;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.functions.Consumer;
 
@@ -18,7 +35,11 @@ import io.reactivex.functions.Consumer;
 public class HomeFragment extends BaseFragment {
 
     public static final String TAG = HomeFragment.class.getSimpleName();
+    private List<String> titleDataList;
+    private MainActivity mainActivity;
     private RadioGroup rg_top_nav;
+    private MagicIndicator home_top_indicator;
+    private ViewPager home_viewpager;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -26,7 +47,9 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void findView() {
+        home_viewpager = find(R.id.home_viewpager);
         rg_top_nav = find(R.id.rg_top_nav);
+        home_top_indicator = find(R.id.home_top_indicator);
     }
 
     @Override
@@ -38,12 +61,10 @@ public class HomeFragment extends BaseFragment {
                     public void accept(Integer integer) throws Exception {
                         int id = integer.intValue();
                         rg_top_nav.check(id);
-                        switch (id){
+                        switch (id) {
                             case R.id.rb_featured:
-                                SnackbarUtils.with(rg_top_nav).setMessage("featured").setDuration(SnackbarUtils.LENGTH_SHORT).show();
                                 break;
                             case R.id.rb_attention:
-                                SnackbarUtils.with(rg_top_nav).setMessage("attention").setDuration(SnackbarUtils.LENGTH_SHORT).show();
                                 break;
                             default:
                                 break;
@@ -53,8 +74,58 @@ public class HomeFragment extends BaseFragment {
     }
 
     @Override
+    protected void loadData() {
+        titleDataList = new ArrayList<>();
+        titleDataList.add("推荐");
+        titleDataList.add("视频");
+        titleDataList.add("段友秀");
+        titleDataList.add("图片");
+        titleDataList.add("段子");
+        titleDataList.add("精华");
+        titleDataList.add("同城");
+        final CommonNavigator commonNavigator = new CommonNavigator(mainActivity);
+        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
+
+            @Override
+            public int getCount() {
+                return titleDataList == null ? 0 : titleDataList.size();
+            }
+
+            @Override
+            public IPagerTitleView getTitleView(Context context, final int index) {
+                ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
+                colorTransitionPagerTitleView.setNormalColor(Color.GRAY);
+                colorTransitionPagerTitleView.setSelectedColor(Color.BLACK);
+                colorTransitionPagerTitleView.setText(titleDataList.get(index));
+                colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Snackbar.make(rg_top_nav,"" + index,Snackbar.LENGTH_SHORT).show();
+                    }
+                });
+                return colorTransitionPagerTitleView;
+            }
+
+            @Override
+            public IPagerIndicator getIndicator(Context context) {
+                LinePagerIndicator indicator = new LinePagerIndicator(context);
+                indicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
+                return indicator;
+            }
+        });
+        home_top_indicator.setNavigator(commonNavigator);
+        ViewPagerHelper.bind(home_top_indicator, home_viewpager);
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.fragment_home;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mainActivity = (MainActivity) context;
     }
 
     /**
