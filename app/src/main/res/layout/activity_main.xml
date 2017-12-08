@@ -7,45 +7,60 @@
     android:orientation="vertical"
     tools:context="com.weibo.neihanduanzi.activity.MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/rl_topbar"
+    <FrameLayout
+        android:id="@+id/fragment"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary">
+        android:layout_height="match_parent"
+        android:layout_weight="1"></FrameLayout>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerVertical="true"
-            android:paddingLeft="5dp"
-            android:src="@mipmap/default_round_head" />
+    <RadioGroup
+        android:id="@+id/bottom_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
 
-        <RadioGroup
-            android:id="@+id/rg_top_nav"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal">
+        <com.weibo.neihanduanzi.widget.Nav_RadioButton
+            android:id="@+id/rb_home"
+            style="@style/bottom_bar_radiobutton_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="首页"
+            app:DrawableSize="30dp"
+            android:checked="true"
+            app:DrawableTop="@drawable/bottom_nav_radiobutton_icon_home" />
 
-            <com.weibo.neihanduanzi.widget.Nav_RadioButton
-                android:id="@+id/rb_featured"
-                style="@style/top_bar_radiobutton_style"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:checked="true"
-                android:layout_weight="1"
-                android:text="精选" />
 
-            <com.weibo.neihanduanzi.widget.Nav_RadioButton
-                android:id="@+id/rb_attention"
-                style="@style/top_bar_radiobutton_style"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="关注" />
+        <com.weibo.neihanduanzi.widget.Nav_RadioButton
+            android:id="@+id/rb_discover"
+            style="@style/bottom_bar_radiobutton_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="发现"
+            app:DrawableSize="30dp"
+            app:DrawableTop="@drawable/bottom_nav_radiobutton_icon_discover" />
 
-        </RadioGroup>
+        <com.weibo.neihanduanzi.widget.Nav_RadioButton
+            android:id="@+id/rb_audit"
+            style="@style/bottom_bar_radiobutton_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="审核"
+            app:DrawableSize="30dp"
+            app:DrawableTop="@drawable/bottom_nav_radiobutton_icon_audit" />
 
-    </RelativeLayout>
+        <com.weibo.neihanduanzi.widget.Nav_RadioButton
+            android:id="@+id/rb_message"
+            style="@style/bottom_bar_radiobutton_style"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="消息"
+            app:DrawableSize="30dp"
+            app:DrawableTop="@drawable/bottom_nav_radiobutton_icon_msg" />
+
+    </RadioGroup>
 
 </LinearLayout>

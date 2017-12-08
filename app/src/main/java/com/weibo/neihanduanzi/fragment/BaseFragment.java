@@ -24,7 +24,8 @@ public abstract class BaseFragment extends RxFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(getLayoutId(), container, false);
-        initView();
+        findView();
+        listener();
         return view;
     }
 
@@ -44,13 +45,18 @@ public abstract class BaseFragment extends RxFragment {
         }
     }
 
-    protected void initView() {}
+    protected void findView() {
+    }
 
-    protected void loadData() {}
+    protected void listener() {
+    }
+
+    protected void loadData() {
+    }
 
     protected abstract int getLayoutId();
 
-    protected <T extends View> T findView(int id) {
+    protected <T extends View> T find(int id) {
         return (T) view.findViewById(id);
     }
 

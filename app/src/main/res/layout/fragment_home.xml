@@ -1,0 +1,50 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.weibo.neihanduanzi.fragment.HomeFragment">
+
+    <RelativeLayout
+        android:id="@+id/rl_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:paddingLeft="5dp"
+            android:src="@mipmap/default_round_head" />
+
+        <RadioGroup
+            android:id="@+id/rg_top_nav"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <com.weibo.neihanduanzi.widget.Nav_RadioButton
+                android:id="@+id/rb_featured"
+                style="@style/top_bar_radiobutton_style"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:checked="true"
+                android:layout_weight="1"
+                android:text="精选" />
+
+            <com.weibo.neihanduanzi.widget.Nav_RadioButton
+                android:id="@+id/rb_attention"
+                style="@style/top_bar_radiobutton_style"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+
+                android:layout_weight="1"
+                android:text="关注" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+</FrameLayout>
