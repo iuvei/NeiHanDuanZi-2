@@ -37,10 +37,12 @@
                 android:gravity="center"
                 android:text="精选"
                 android:id="@+id/rb_featured"
+                android:clickable="true"
                 android:textColor="@drawable/top_nav_radiobutton_background" />
 
             <com.weibo.neihanduanzi.widget.Nav_RadioButton
                 android:layout_width="0dp"
+                android:clickable="true"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"

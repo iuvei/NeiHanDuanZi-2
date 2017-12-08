@@ -50,7 +50,18 @@ ext{
 
     rxpermissions = "com.tbruyelle.rxpermissions2:rxpermissions:$rxpermissions_version@aar"
 
+    dagger_android = "com.google.dagger:dagger-android:$dagger2_version"
+    dagger_android_support = "com.google.dagger:dagger-android-support:$dagger2_version"
     dagger_android_processor = "com.google.dagger:dagger-android-processor:$dagger2_version"
+
+    glide =  "com.github.bumptech.glide:glide:$glide_version"
+    glide_compiler = "com.github.bumptech.glide:compiler:$glide_version"
+
+    rxlifecycle = "com.trello.rxlifecycle2:rxlifecycle-components:$rxlifecycle2_version"
+
+    rxbinding2_recyclerview = "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:$rxbinding2_version"
+    rxbinding2_appcompat = "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rxbinding2_version"
+    rxbinding2_design = "com.jakewharton.rxbinding2:rxbinding-design:$rxbinding2_version"
 
 }
 
@@ -61,14 +72,7 @@ subprojects { project ->
             eachDependency { details ->
                 if (details.requested.group == 'com.android.support') {
                     details.useVersion(rootProject.ext.support_version)
-                } else if (details.requested.group == 'io.reactivex.rxjava2' && details.requested.module == 'rxjava') {
-                    details.useVersion(rootProject.ext.rxjava_version)
-                }else if (details.requested.group == 'io.reactivex.rxjava2' && details.requested.module == 'rxandroid') {
-                    details.useVersion(rootProject.ext.rxandroid_version)
-                } else if (details.requested.group == 'com.squareup.retrofit2' && details.requested.module == 'retrofit') {
-                    details.useVersion(rootProject.ext.retrofit2_version)
                 }
-
             }
         }
     }

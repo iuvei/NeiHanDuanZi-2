@@ -1,11 +1,11 @@
 package com.weibo.neihanduanzi.activity;
 
-import android.support.design.widget.Snackbar;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
 import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
+import com.weibo.neihanduanzi.util.SnackbarUtils;
 
 import io.reactivex.functions.Consumer;
 
@@ -37,13 +37,14 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void accept(Integer integer) throws Exception {
                         int id = integer.intValue();
+                        rg_top_nav.check(id);
                         switch (id){
                             case R.id.rb_featured:
-                                Snackbar.make(rl_topbar,"hhh",Snackbar.LENGTH_LONG).show();
-                                //SnackbarUtils.with(rg_top_nav).setMessage("featured").setDuration(SnackbarUtils.LENGTH_SHORT).show();
+                                //Snackbar.make(rl_topbar,"hhh",Snackbar.LENGTH_LONG).show();
+                                SnackbarUtils.with(rg_top_nav).setMessage("featured").setDuration(SnackbarUtils.LENGTH_SHORT).show();
                                 break;
                             case R.id.rb_attention:
-                                //SnackbarUtils.with(rg_top_nav).setMessage("attention").setDuration(SnackbarUtils.LENGTH_SHORT).show();
+                                SnackbarUtils.with(rg_top_nav).setMessage("attention").setDuration(SnackbarUtils.LENGTH_SHORT).show();
                                 break;
                             default:
                                 break;

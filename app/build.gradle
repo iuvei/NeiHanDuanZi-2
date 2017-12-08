@@ -47,36 +47,16 @@ dependencies {
     //rxpermissions2
     compile rootProject.ext.rxpermissions
     //rxbinding2
-    compile("com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rootProject.rxbinding2_version", {
-        exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
-        exclude group: 'io.reactivex.rxjava2', module: 'rxandroid'
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-    })
-    compile("com.jakewharton.rxbinding2:rxbinding-design:$rootProject.rxbinding2_version", {
-        exclude group: 'com.android.support', module: 'design'
-        exclude group: 'com.jakewharton.rxbinding2', module: 'rxbinding'
-    })
-    compile("com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:$rootProject.rxbinding2_version", {
-        exclude group: 'com.android.support', module: 'recyclerview-v7'
-        exclude group: 'com.jakewharton.rxbinding2', module: 'rxbinding'
-    })
+    compile rootProject.ext.rxbinding2_appcompat
+    compile rootProject.ext.rxbinding2_recyclerview
+    compile rootProject.ext.rxbinding2_design
     //rxlifecycle2
-    compile("com.trello.rxlifecycle2:rxlifecycle-components:$rootProject.rxlifecycle2_version", {
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
-    })
+    compile rootProject.ext.rxlifecycle
     //glide
-    compile "com.github.bumptech.glide:glide:$rootProject.glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glide_version"
+    compile rootProject.ext.glide
+    annotationProcessor rootProject.ext.glide_compiler
     //dagger2
-    compile("com.google.dagger:dagger-android:$rootProject.dagger2_version", {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile("com.google.dagger:dagger-android-support:$rootProject.dagger2_version", {
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'com.android.support', module: 'support-annotations'
-        exclude group: 'com.android.support', module: 'support-fragment'
-    })
+    compile rootProject.ext.dagger_android
     annotationProcessor rootProject.ext.dagger_android_processor
     //bilibili ijkplayer
     compile rootProject.ext.ijkplayer_java
@@ -85,7 +65,4 @@ dependencies {
     //bilibili DanmuFlameMaster
     compile rootProject.ext.danmuFlameMaster
     compile rootProject.ext.ndkbitmap_armv7a
-    //rxjava2
-    compile rootProject.ext.rxJava
-    compile rootProject.ext.rxAndroid
 }
