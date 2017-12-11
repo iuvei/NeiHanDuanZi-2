@@ -3,6 +3,7 @@ package com.weibo.neihanduanzi.fragment;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -10,6 +11,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.RadioGroup;
 
+import com.bumptech.glide.Glide;
 import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
 import com.weibo.neihanduanzi.activity.MainActivity;
@@ -65,6 +67,8 @@ public class HomeFragment extends BaseFragment {
                         rg_top_nav.check(id);
                         switch (id) {
                             case R.id.rb_featured:
+                                Glide.with(mainActivity)
+                                        .load(Uri.parse("https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=713153999,1979777584&fm=27&gp=0.jpg"));
                                 break;
                             case R.id.rb_attention:
                                 break;

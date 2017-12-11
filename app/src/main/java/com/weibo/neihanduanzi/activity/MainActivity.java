@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity {
                                     ft.show(fragment);
                                 } else {
                                     fragment = HomeFragment.newInstance();
-                                    ft.add(R.id.fragment, fragment, tag).addToBackStack(tag);
+                                    ft.add(R.id.fragment, fragment, tag);
                                 }
                                 break;
                             case R.id.rb_discover:
@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity {
                                     ft.show(fragment);
                                 } else {
                                     fragment = DiscoveryFragment.newInstance();
-                                    ft.add(R.id.fragment, fragment, tag).addToBackStack(tag);
+                                    ft.add(R.id.fragment, fragment, tag);
                                 }
                                 break;
                             case R.id.rb_audit:
@@ -71,7 +71,7 @@ public class MainActivity extends BaseActivity {
                                     ft.show(fragment);
                                 } else {
                                     fragment = AuditFragment.newInstance();
-                                    ft.add(R.id.fragment, fragment, tag).addToBackStack(tag);
+                                    ft.add(R.id.fragment, fragment, tag);
                                 }
                                 break;
                             case R.id.rb_message:
@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity {
                                     ft.show(fragment);
                                 } else {
                                     fragment = MsgFragment.newInstance();
-                                    ft.add(R.id.fragment, fragment, tag).addToBackStack(tag);
+                                    ft.add(R.id.fragment, fragment, tag);
                                 }
                                 break;
                             default:
