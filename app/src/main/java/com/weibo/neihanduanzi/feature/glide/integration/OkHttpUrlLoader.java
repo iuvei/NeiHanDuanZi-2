@@ -11,6 +11,8 @@ import com.weibo.neihanduanzi.util.OkHttpUtil;
 
 import java.io.InputStream;
 
+import javax.inject.Inject;
+
 import okhttp3.Call;
 
 /**
@@ -44,6 +46,7 @@ public class OkHttpUrlLoader implements ModelLoader<GlideUrl, InputStream> {
   @SuppressWarnings("WeakerAccess")
   public static class Factory implements ModelLoaderFactory<GlideUrl, InputStream> {
     private static volatile Call.Factory internalClient;
+    @Inject
     private Call.Factory client;
 
     /**
