@@ -8,7 +8,6 @@ import com.bumptech.glide.Registry;
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.module.AppGlideModule;
-import com.weibo.neihanduanzi.util.LogUtils;
 
 import java.io.InputStream;
 

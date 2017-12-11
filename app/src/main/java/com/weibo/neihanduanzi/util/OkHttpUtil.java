@@ -1,9 +1,5 @@
 package com.weibo.neihanduanzi.util;
 
-import android.content.Context;
-
-import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
 
 /**
@@ -15,11 +11,8 @@ public final class OkHttpUtil {
     private OkHttpUtil() {
     }
 
-    public static OkHttpClient get(Context context) {
+    public static OkHttpClient get() {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(3000, TimeUnit.SECONDS)
-                .readTimeout(3000, TimeUnit.SECONDS)
-                .writeTimeout(3000, TimeUnit.SECONDS)
                 .build();
         return okHttpClient;
     }
