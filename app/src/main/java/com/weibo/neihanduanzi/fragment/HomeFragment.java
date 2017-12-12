@@ -3,6 +3,8 @@ package com.weibo.neihanduanzi.fragment;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -14,6 +16,10 @@ import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
 import com.weibo.neihanduanzi.activity.MainActivity;
 import com.weibo.neihanduanzi.adapter.NavViewPagerFragmentAdapter;
+import com.weibo.neihanduanzi.api.ApiService;
+import com.weibo.neihanduanzi.bean.home.Home_Top_Tab;
+import com.weibo.neihanduanzi.util.LogUtils;
+import com.weibo.neihanduanzi.util.OkHttpUtil;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -27,7 +33,11 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,9 +52,17 @@ public class HomeFragment extends BaseFragment {
     private RadioGroup rg_top_nav;
     private MagicIndicator home_top_indicator;
     private ViewPager home_viewpager;
+    @Inject
+    ApiService apiService;
 
     public HomeFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        OkHttpUtil.build().inject(this);
     }
 
     @Override
@@ -129,6 +147,17 @@ public class HomeFragment extends BaseFragment {
         });
         home_top_indicator.setNavigator(commonNavigator);
         ViewPagerHelper.bind(home_top_indicator, home_viewpager);
+
+        apiService.getTabs()
+                .compose(this.<Home_Top_Tab>bindToLifecycle())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Home_Top_Tab>() {
+                    @Override
+                    public void accept(Home_Top_Tab home_top_tab) throws Exception {
+                        LogUtils.d(home_top_tab.getTabs());
+                    }
+                });
     }
 
     @Override

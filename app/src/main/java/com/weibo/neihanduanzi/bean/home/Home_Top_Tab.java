@@ -1,10 +1,11 @@
-package com.weibo.neihanduanzi.bean;
+package com.weibo.neihanduanzi.bean.home;
 
 /**
  * Created by Administrator on 2017/12/12.
+ * home页面的顶部导航栏tabs
  */
 
-public class Result<T> {
+public class Home_Top_Tab {
 
     /**
     *  "message": "success",
@@ -12,14 +13,14 @@ public class Result<T> {
     */
 
     private String message;
-    private T[] data;
+    private Tab[] tabs;
 
-    public Result() {
+    public Home_Top_Tab() {
     }
 
-    public Result(String message, T[] data) {
+    public Home_Top_Tab(String message, Tab[] tabs) {
         this.message = message;
-        this.data = data;
+        this.tabs = tabs;
     }
 
     public String getMessage() {
@@ -30,19 +31,19 @@ public class Result<T> {
         this.message = message;
     }
 
-    public T[] getData() {
-        return data;
+    public Tab[] getTabs() {
+        return tabs;
     }
 
-    public void setData(T[] data) {
-        this.data = data;
+    public void setTabs(Tab[] tabs) {
+        this.tabs = tabs;
     }
 
     @Override
     public String toString() {
-        return "Result{" +
+        return "Home_Top_Tab{" +
                 "message='" + message + '\'' +
-                ", data=" + data +
+                ", tabs=" + tabs +
                 '}';
     }
 }

@@ -1,7 +1,6 @@
 package com.weibo.neihanduanzi.api;
 
-import com.weibo.neihanduanzi.bean.Result;
-import com.weibo.neihanduanzi.bean.Tab;
+import com.weibo.neihanduanzi.bean.home.Home_Top_Tab;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -16,6 +15,6 @@ public interface ApiService {
      * @return
      */
     @GET("neihan/service/tabs")
-    Observable<Result<Tab>> getTabs();
+    Observable<Home_Top_Tab> getTabs();
 
 }
