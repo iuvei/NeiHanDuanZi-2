@@ -8,7 +8,6 @@ import com.bumptech.glide.Registry;
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.module.AppGlideModule;
-import com.weibo.neihanduanzi.api.ApiService;
 import com.weibo.neihanduanzi.util.OkHttpUtil;
 
 import java.io.InputStream;
@@ -26,9 +25,6 @@ import okhttp3.OkHttpClient;
  */
 @GlideModule
 public final class OkHttpLibraryGlideModule extends AppGlideModule {
-
-    @Inject
-    ApiService apiService;
 
     @Inject
     OkHttpClient okHttpClient;

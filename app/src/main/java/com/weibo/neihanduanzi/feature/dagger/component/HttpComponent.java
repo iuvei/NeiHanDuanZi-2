@@ -10,6 +10,7 @@ import dagger.Component;
 /**
  * Created by Administrator on 2017/12/12.
  */
+
 @Singleton
 @Component(modules = {HttpModule.class})
 public interface HttpComponent {
