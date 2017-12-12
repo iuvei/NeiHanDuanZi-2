@@ -1,7 +1,7 @@
 package com.weibo.neihanduanzi.util;
 
-import com.weibo.neihanduanzi.feature.dagger.component.DaggerOkHttpComponent;
-import com.weibo.neihanduanzi.feature.dagger.component.OkHttpComponent;
+import com.weibo.neihanduanzi.feature.dagger.component.DaggerHttpComponent;
+import com.weibo.neihanduanzi.feature.dagger.component.HttpComponent;
 
 /**
  * Created by Administrator on 2017/12/11.
@@ -12,12 +12,12 @@ public final class OkHttpUtil {
     private OkHttpUtil() {
     }
 
-    public static OkHttpComponent build() {
-        return OkHttpComponentHelper.okHttpComponent;
+    public static HttpComponent build() {
+        return OkHttpComponentHelper.httpComponent;
     }
 
     private final static class OkHttpComponentHelper{
-        private final static OkHttpComponent okHttpComponent = DaggerOkHttpComponent.builder().build();
+        private final static HttpComponent httpComponent = DaggerHttpComponent.builder().build();
     }
 
 }

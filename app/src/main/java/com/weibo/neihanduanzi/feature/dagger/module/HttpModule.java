@@ -19,9 +19,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 @Module
-public class OkHttpModule {
+public class HttpModule {
 
-    public OkHttpModule() {
+    public HttpModule() {
     }
 
     @Singleton
@@ -37,12 +37,12 @@ public class OkHttpModule {
 
     @Singleton
     @Provides
-    public ApiService create(OkHttpClient client) {
+    public ApiService providesApiService(OkHttpClient client) {
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
-                .baseUrl(Constant.HOME_API)
+                .baseUrl(Constant.BASE_URL)
                 .build();
         ApiService apiService = retrofit.create(ApiService.class);
         return apiService;
