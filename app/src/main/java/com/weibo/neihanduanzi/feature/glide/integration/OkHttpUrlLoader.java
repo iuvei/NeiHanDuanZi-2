@@ -7,11 +7,8 @@ import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
-import com.weibo.neihanduanzi.util.OkHttpUtil;
 
 import java.io.InputStream;
-
-import javax.inject.Inject;
 
 import okhttp3.Call;
 
@@ -46,14 +43,13 @@ public class OkHttpUrlLoader implements ModelLoader<GlideUrl, InputStream> {
   @SuppressWarnings("WeakerAccess")
   public static class Factory implements ModelLoaderFactory<GlideUrl, InputStream> {
     private static volatile Call.Factory internalClient;
-    @Inject
     private Call.Factory client;
 
     /**
      * Constructor for a new Factory that runs requests using a static singleton client.
      */
-    public Factory() {
-      this(OkHttpUtil.get());
+    private Factory() {
+
     }
 
     /**

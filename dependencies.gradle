@@ -50,6 +50,8 @@ ext{
 
     rxpermissions               = "com.tbruyelle.rxpermissions2:rxpermissions:$rxpermissions_version@aar"
 
+    dagger                      = "com.google.dagger:dagger:$dagger2_version"
+    dagger_processor            = "com.google.dagger:dagger-compiler:$dagger2_version"
     dagger_android              = "com.google.dagger:dagger-android:$dagger2_version"
     dagger_android_support      = "com.google.dagger:dagger-android-support:$dagger2_version"
     dagger_android_processor    = "com.google.dagger:dagger-android-processor:$dagger2_version"

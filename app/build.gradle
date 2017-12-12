@@ -33,7 +33,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:support-v4:27.+'
     testImplementation rootProject.ext.junit
     androidTestImplementation rootProject.ext.supportTestRunner
     androidTestImplementation rootProject.ext.supportTestEspresso
@@ -57,8 +56,8 @@ dependencies {
     implementation rootProject.ext.glide
     annotationProcessor rootProject.ext.glide_compiler
     //dagger2
-    implementation rootProject.ext.dagger_android
-    annotationProcessor rootProject.ext.dagger_android_processor
+    implementation rootProject.ext.dagger
+    annotationProcessor rootProject.ext.dagger_processor
     //bilibili ijkplayer
     implementation rootProject.ext.ijkplayer_java
     implementation rootProject.ext.ijkplayer_armv7a

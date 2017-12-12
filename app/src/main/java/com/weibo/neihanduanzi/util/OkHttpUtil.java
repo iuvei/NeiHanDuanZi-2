@@ -1,6 +1,7 @@
 package com.weibo.neihanduanzi.util;
 
-import okhttp3.OkHttpClient;
+import com.weibo.neihanduanzi.feature.dagger.component.DaggerOkHttpComponent;
+import com.weibo.neihanduanzi.feature.dagger.component.OkHttpComponent;
 
 /**
  * Created by Administrator on 2017/12/11.
@@ -11,10 +12,12 @@ public final class OkHttpUtil {
     private OkHttpUtil() {
     }
 
-    public static OkHttpClient get() {
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .build();
-        return okHttpClient;
+    public static OkHttpComponent build() {
+        return OkHttpComponentHelper.okHttpComponent;
+    }
+
+    private final static class OkHttpComponentHelper{
+        private final static OkHttpComponent okHttpComponent = DaggerOkHttpComponent.builder().build();
     }
 
 }

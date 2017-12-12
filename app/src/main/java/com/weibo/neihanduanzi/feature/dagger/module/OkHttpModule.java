@@ -1,6 +1,6 @@
 package com.weibo.neihanduanzi.feature.dagger.module;
 
-import com.weibo.neihanduanzi.util.OkHttpUtil;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -12,8 +12,12 @@ import okhttp3.OkHttpClient;
 
 @Module
 public class OkHttpModule {
+    public OkHttpModule(){}
+    @Singleton
     @Provides
     public OkHttpClient providesOkHttpCliet(){
-        return OkHttpUtil.get();
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .build();
+        return okHttpClient;
     }
 }

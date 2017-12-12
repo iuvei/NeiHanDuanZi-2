@@ -8,8 +8,13 @@ import com.bumptech.glide.Registry;
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.module.AppGlideModule;
+import com.weibo.neihanduanzi.util.OkHttpUtil;
 
 import java.io.InputStream;
+
+import javax.inject.Inject;
+
+import okhttp3.OkHttpClient;
 
 /**
  * Registers OkHttp related classes via Glide's annotation processor.
@@ -20,9 +25,14 @@ import java.io.InputStream;
  */
 @GlideModule
 public final class OkHttpLibraryGlideModule extends AppGlideModule {
+
+    @Inject
+    OkHttpClient okHttpClient;
+
     @Override
     public void registerComponents(@NonNull Context context, @NonNull Glide glide,
                                    @NonNull Registry registry) {
-        registry.replace(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory());
+        OkHttpUtil.build().inject(this);
+        registry.replace(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(okHttpClient));
     }
 }
