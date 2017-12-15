@@ -16,7 +16,7 @@ import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
 import com.weibo.neihanduanzi.adapter.NavViewPagerFragmentAdapter;
 import com.weibo.neihanduanzi.api.ApiService;
-import com.weibo.neihanduanzi.bean.home.Home_Top_Tab;
+import com.weibo.neihanduanzi.bean.home.Home_Top_Tabs;
 import com.weibo.neihanduanzi.mvp.view.activity.MainActivity;
 import com.weibo.neihanduanzi.util.LogUtils;
 import com.weibo.neihanduanzi.util.OkHttpUtil;
@@ -150,12 +150,12 @@ public class HomeFragment extends BaseFragment {
         ViewPagerHelper.bind(home_top_indicator, home_viewpager);
 
         apiService.getTabs()
-                .compose(this.<Home_Top_Tab>bindToLifecycle())
+                .compose(this.<Home_Top_Tabs>bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Home_Top_Tab>() {
+                .subscribe(new Consumer<Home_Top_Tabs>() {
                     @Override
-                    public void accept(Home_Top_Tab home_top_tab) throws Exception {
+                    public void accept(Home_Top_Tabs home_top_tab) throws Exception {
                         LogUtils.d(home_top_tab.getTabs().size());
                     }
                 });

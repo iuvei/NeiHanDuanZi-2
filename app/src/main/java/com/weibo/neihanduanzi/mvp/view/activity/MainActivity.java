@@ -7,10 +7,10 @@ import android.widget.RadioGroup;
 
 import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
-import com.weibo.neihanduanzi.fragment.AuditFragment;
-import com.weibo.neihanduanzi.fragment.DiscoveryFragment;
-import com.weibo.neihanduanzi.fragment.HomeFragment;
-import com.weibo.neihanduanzi.fragment.MsgFragment;
+import com.weibo.neihanduanzi.mvp.view.fragment.AuditFragment;
+import com.weibo.neihanduanzi.mvp.view.fragment.DiscoveryFragment;
+import com.weibo.neihanduanzi.mvp.view.fragment.HomeFragment;
+import com.weibo.neihanduanzi.mvp.view.fragment.MsgFragment;
 
 import io.reactivex.functions.Consumer;
 

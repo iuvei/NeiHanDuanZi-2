@@ -6,6 +6,7 @@ package com.weibo.neihanduanzi;
 
 public final class Constant {
 
+    private Constant(){}
     public final static String BASE_URL = "http://is.snssdk.com/";
 
 }

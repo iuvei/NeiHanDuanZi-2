@@ -4,7 +4,6 @@ package com.weibo.neihanduanzi.mvp.view.fragment;
 import android.support.v4.app.Fragment;
 
 import com.weibo.neihanduanzi.R;
-import com.weibo.neihanduanzi.fragment.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.
