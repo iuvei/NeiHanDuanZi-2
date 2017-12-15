@@ -9,7 +9,7 @@ import java.util.List;
  * home页面的顶部导航栏tabs
  */
 
-public class Home_Top_Tab {
+public class Home_Top_Tabs {
 
     /**
     *  "message": "success",
@@ -21,10 +21,10 @@ public class Home_Top_Tab {
     @SerializedName("data")
     private List<Tab> tabs;
 
-    public Home_Top_Tab() {
+    public Home_Top_Tabs() {
     }
 
-    public Home_Top_Tab(String message, List<Tab> tabs) {
+    public Home_Top_Tabs(String message, List<Tab> tabs) {
         this.message = message;
         this.tabs = tabs;
     }
