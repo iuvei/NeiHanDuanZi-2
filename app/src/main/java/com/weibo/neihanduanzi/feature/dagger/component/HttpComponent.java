@@ -2,7 +2,7 @@ package com.weibo.neihanduanzi.feature.dagger.component;
 
 import com.weibo.neihanduanzi.feature.dagger.module.HttpModule;
 import com.weibo.neihanduanzi.feature.glide.integration.OkHttpLibraryGlideModule;
-import com.weibo.neihanduanzi.fragment.HomeFragment;
+import com.weibo.neihanduanzi.mvp.view.fragment.HomeFragment;
 
 import javax.inject.Singleton;
 

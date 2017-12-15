@@ -18,7 +18,7 @@
             android:name="android.max_aspect"
             android:value="2.1"
             ></meta-data>
-        <activity android:name=".activity.MainActivity"
+        <activity android:name=".mvp.view.activity.MainActivity"
             android:configChanges="screenSize|orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

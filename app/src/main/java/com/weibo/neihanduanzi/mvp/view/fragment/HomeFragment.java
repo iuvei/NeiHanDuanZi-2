@@ -1,4 +1,4 @@
-package com.weibo.neihanduanzi.fragment;
+package com.weibo.neihanduanzi.mvp.view.fragment;
 
 
 import android.content.Context;
@@ -14,10 +14,10 @@ import android.widget.RadioGroup;
 
 import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
-import com.weibo.neihanduanzi.activity.MainActivity;
 import com.weibo.neihanduanzi.adapter.NavViewPagerFragmentAdapter;
 import com.weibo.neihanduanzi.api.ApiService;
 import com.weibo.neihanduanzi.bean.home.Home_Top_Tab;
+import com.weibo.neihanduanzi.mvp.view.activity.MainActivity;
 import com.weibo.neihanduanzi.util.LogUtils;
 import com.weibo.neihanduanzi.util.OkHttpUtil;
 
@@ -145,6 +145,7 @@ public class HomeFragment extends BaseFragment {
                 return indicator;
             }
         });
+        //commonNavigator.setAdjustMode(true);
         home_top_indicator.setNavigator(commonNavigator);
         ViewPagerHelper.bind(home_top_indicator, home_viewpager);
 
@@ -155,7 +156,7 @@ public class HomeFragment extends BaseFragment {
                 .subscribe(new Consumer<Home_Top_Tab>() {
                     @Override
                     public void accept(Home_Top_Tab home_top_tab) throws Exception {
-                        LogUtils.d(home_top_tab.getTabs());
+                        LogUtils.d(home_top_tab.getTabs().size());
                     }
                 });
     }

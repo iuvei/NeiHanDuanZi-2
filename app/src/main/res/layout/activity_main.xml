@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.weibo.neihanduanzi.activity.MainActivity">
+    tools:context=".mvp.view.activity.MainActivity">
 
     <FrameLayout
         android:id="@+id/fragment"
@@ -19,7 +19,7 @@
         android:layout_height="50dp"
         android:orientation="horizontal">
 
-        <com.weibo.neihanduanzi.widget.Nav_RadioButton
+        <com.weibo.neihanduanzi.mvp.view.widget.Nav_RadioButton
             android:id="@+id/rb_home"
             style="@style/bottom_bar_radiobutton_style"
             android:layout_width="0dp"
@@ -31,7 +31,7 @@
             app:DrawableTop="@drawable/bottom_nav_radiobutton_icon_home" />
 
 
-        <com.weibo.neihanduanzi.widget.Nav_RadioButton
+        <com.weibo.neihanduanzi.mvp.view.widget.Nav_RadioButton
             android:id="@+id/rb_discover"
             style="@style/bottom_bar_radiobutton_style"
             android:layout_width="0dp"
@@ -41,7 +41,7 @@
             app:DrawableSize="30dp"
             app:DrawableTop="@drawable/bottom_nav_radiobutton_icon_discover" />
 
-        <com.weibo.neihanduanzi.widget.Nav_RadioButton
+        <com.weibo.neihanduanzi.mvp.view.widget.Nav_RadioButton
             android:id="@+id/rb_audit"
             style="@style/bottom_bar_radiobutton_style"
             android:layout_width="0dp"
@@ -51,7 +51,7 @@
             app:DrawableSize="30dp"
             app:DrawableTop="@drawable/bottom_nav_radiobutton_icon_audit" />
 
-        <com.weibo.neihanduanzi.widget.Nav_RadioButton
+        <com.weibo.neihanduanzi.mvp.view.widget.Nav_RadioButton
             android:id="@+id/rb_message"
             style="@style/bottom_bar_radiobutton_style"
             android:layout_width="0dp"

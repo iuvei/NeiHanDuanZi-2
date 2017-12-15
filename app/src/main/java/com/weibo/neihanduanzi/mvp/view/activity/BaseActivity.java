@@ -1,4 +1,4 @@
-package com.weibo.neihanduanzi.activity;
+package com.weibo.neihanduanzi.mvp.view.activity;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;

@@ -1,5 +1,9 @@
 package com.weibo.neihanduanzi.bean.home;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/12/12.
  * home页面的顶部导航栏tabs
@@ -13,12 +17,14 @@ public class Home_Top_Tab {
     */
 
     private String message;
-    private Tab[] tabs;
+
+    @SerializedName("data")
+    private List<Tab> tabs;
 
     public Home_Top_Tab() {
     }
 
-    public Home_Top_Tab(String message, Tab[] tabs) {
+    public Home_Top_Tab(String message, List<Tab> tabs) {
         this.message = message;
         this.tabs = tabs;
     }
@@ -31,11 +37,11 @@ public class Home_Top_Tab {
         this.message = message;
     }
 
-    public Tab[] getTabs() {
+    public List<Tab> getTabs() {
         return tabs;
     }
 
-    public void setTabs(Tab[] tabs) {
+    public void setTabs(List<Tab> tabs) {
         this.tabs = tabs;
     }
 

@@ -1,4 +1,4 @@
-package com.weibo.neihanduanzi.activity;
+package com.weibo.neihanduanzi.mvp.view.activity;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
