@@ -75,22 +75,24 @@ public class HomeFragment extends BaseFragment {
     protected void loadData() {
         fragmentList = new ArrayList<>();
         titleDataList = new ArrayList<>();
+        fragmentList.add(AttentionFragment.newInstance());
         fragmentList.add(RecommendFragment.newInstance());
         fragmentList.add(VideoFragment.newInstance());
-        fragmentList.add(DuanYouXiuFragment.newInstance());
+        fragmentList.add(LiveFragment.newInstance());
         fragmentList.add(ImageFragment.newInstance());
         fragmentList.add(DuanZiFragment.newInstance());
-        fragmentList.add(FeaturedFragment.newInstance());
-        fragmentList.add(SameCityFragment.newInstance());
+        fragmentList.add(GameFragment.newInstance());
+        fragmentList.add(EssenceFragment.newInstance());
         home_viewpager.setAdapter(new NavViewPagerFragmentAdapter(fragmentList, getFragmentManager()));
 
+        titleDataList.add("关注");
         titleDataList.add("推荐");
         titleDataList.add("视频");
+        titleDataList.add("直播");
         titleDataList.add("图片");
         titleDataList.add("段子");
+        titleDataList.add("游戏");
         titleDataList.add("精华");
-        titleDataList.add("同城");
-        titleDataList.add("段友圈");
         final CommonNavigator commonNavigator = new CommonNavigator(mainActivity);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
 

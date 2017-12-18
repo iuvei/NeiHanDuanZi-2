@@ -8,24 +8,23 @@ import com.weibo.neihanduanzi.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DuanYouXiuFragment#newInstance} factory method to
+ * Use the {@link EssenceFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DuanYouXiuFragment extends BaseFragment {
+public class EssenceFragment extends BaseFragment{
 
-    public DuanYouXiuFragment() {
+    public EssenceFragment() {
         // Required empty public constructor
     }
 
-
-    public static DuanYouXiuFragment newInstance() {
-        DuanYouXiuFragment fragment = new DuanYouXiuFragment();
+    public static EssenceFragment newInstance() {
+        EssenceFragment fragment = new EssenceFragment();
         Bundle args = new Bundle();
         return fragment;
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_duan_you_xiu;
+        return R.layout.fragment_essence;
     }
 }

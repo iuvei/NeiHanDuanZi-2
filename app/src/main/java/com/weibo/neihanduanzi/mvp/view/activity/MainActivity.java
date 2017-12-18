@@ -7,7 +7,7 @@ import android.widget.RadioGroup;
 
 import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
-import com.weibo.neihanduanzi.mvp.view.fragment.AuditFragment;
+import com.weibo.neihanduanzi.mvp.view.fragment.AttentionFragment;
 import com.weibo.neihanduanzi.mvp.view.fragment.DiscoveryFragment;
 import com.weibo.neihanduanzi.mvp.view.fragment.DuanYouXiuFragment;
 import com.weibo.neihanduanzi.mvp.view.fragment.HomeFragment;
@@ -78,7 +78,7 @@ public class MainActivity extends BaseActivity {
                                 }
                                 break;
                             case R.id.rb_duanyouxiu:
-                                tag = AuditFragment.TAG;
+                                tag = AttentionFragment.TAG;
                                 fragment = fm.findFragmentByTag(tag);
                                 if (fragment != null) {
                                     ft.show(fragment);

@@ -7,20 +7,20 @@ import com.weibo.neihanduanzi.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AuditFragment#newInstance} factory method to
+ * Use the {@link AttentionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AuditFragment extends BaseFragment {
+public class AttentionFragment extends BaseFragment {
 
-    public static final String TAG = AuditFragment.class.getSimpleName();
+    public static final String TAG = AttentionFragment.class.getSimpleName();
 
-    public AuditFragment() {
+    public AttentionFragment() {
         // Required empty public constructor
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_audit;
+        return R.layout.fragment_attention;
     }
 
     /**
@@ -29,8 +29,8 @@ public class AuditFragment extends BaseFragment {
      *
      * @return A new instance of fragment HomeFragment.
      */
-    public static AuditFragment newInstance() {
-        AuditFragment fragment = new AuditFragment();
+    public static AttentionFragment newInstance() {
+        AttentionFragment fragment = new AttentionFragment();
         return fragment;
     }
 
