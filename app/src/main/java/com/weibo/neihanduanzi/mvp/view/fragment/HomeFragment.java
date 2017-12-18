@@ -1,11 +1,9 @@
 package com.weibo.neihanduanzi.mvp.view.fragment;
 
-
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
@@ -18,7 +16,6 @@ import com.weibo.neihanduanzi.adapter.NavViewPagerFragmentAdapter;
 import com.weibo.neihanduanzi.api.ApiService;
 import com.weibo.neihanduanzi.bean.home.Home_Top_Tabs;
 import com.weibo.neihanduanzi.mvp.view.activity.MainActivity;
-import com.weibo.neihanduanzi.util.LogUtils;
 import com.weibo.neihanduanzi.util.OkHttpUtil;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -48,6 +45,7 @@ public class HomeFragment extends BaseFragment {
 
     public static final String TAG = HomeFragment.class.getSimpleName();
     private List<String> titleDataList;
+    private List<Fragment> fragmentList;
     private MainActivity mainActivity;
     private RadioGroup rg_top_nav;
     private MagicIndicator home_top_indicator;
@@ -95,7 +93,8 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected void loadData() {
-        List<Fragment> fragmentList = new ArrayList<>();
+        fragmentList = new ArrayList<>();
+        titleDataList = new ArrayList<>();
         fragmentList.add(RecommendFragment.newInstance());
         fragmentList.add(VideoFragment.newInstance());
         fragmentList.add(DuanYouXiuFragment.newInstance());
@@ -105,14 +104,13 @@ public class HomeFragment extends BaseFragment {
         fragmentList.add(SameCityFragment.newInstance());
         home_viewpager.setAdapter(new NavViewPagerFragmentAdapter(fragmentList, getFragmentManager()));
 
-        titleDataList = new ArrayList<>();
         titleDataList.add("推荐");
         titleDataList.add("视频");
-        titleDataList.add("段友秀");
         titleDataList.add("图片");
         titleDataList.add("段子");
         titleDataList.add("精华");
         titleDataList.add("同城");
+        titleDataList.add("段友圈");
         final CommonNavigator commonNavigator = new CommonNavigator(mainActivity);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
 
@@ -132,7 +130,6 @@ public class HomeFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         home_viewpager.setCurrentItem(index);
-                        Snackbar.make(rg_top_nav, "" + index, Snackbar.LENGTH_SHORT).show();
                     }
                 });
                 return colorTransitionPagerTitleView;
@@ -156,7 +153,7 @@ public class HomeFragment extends BaseFragment {
                 .subscribe(new Consumer<Home_Top_Tabs>() {
                     @Override
                     public void accept(Home_Top_Tabs home_top_tab) throws Exception {
-                        LogUtils.d(home_top_tab.getTabs().size());
+
                     }
                 });
     }

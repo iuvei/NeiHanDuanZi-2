@@ -16,5 +16,4 @@ public interface ApiService {
      */
     @GET("neihan/service/tabs")
     Observable<Home_Top_Tabs> getTabs();
-
 }
