@@ -12,7 +12,6 @@ import com.weibo.neihanduanzi.mvp.view.fragment.DiscoveryFragment;
 import com.weibo.neihanduanzi.mvp.view.fragment.DuanYouXiuFragment;
 import com.weibo.neihanduanzi.mvp.view.fragment.HomeFragment;
 import com.weibo.neihanduanzi.mvp.view.fragment.MyFragment;
-import com.weibo.neihanduanzi.util.LogUtils;
 
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Predicate;
@@ -25,6 +24,7 @@ public class MainActivity extends BaseActivity {
 
     private FragmentManager fm;
     private Fragment lastFragment;
+    private int lastCheckId;
     private RadioGroup rb_bottom_navbar;
 
     @Override
@@ -42,10 +42,19 @@ public class MainActivity extends BaseActivity {
                     public boolean test(Integer integer) throws Exception {
                         /**
                          * R.id.rb_add 是发文章按钮的id，也就是下方导航栏的大＋按钮
-                         * 需要过滤掉，不需要响应显示fragment
+                         *
+                         * 需要过滤掉这个ID的响应，不需要显示fragment
+                         * 也不需要被选中，所以需要记下上一次选中的ID，作恢复处理
+                         *
                          * @return 返回true表示通过，false表示拦截不给通过
                          */
-                        return integer.intValue() != R.id.rb_add;
+                        boolean filter = integer.intValue() != R.id.rb_add;
+                        if (!filter) {
+                            rb_bottom_navbar.check(lastCheckId);
+                        } else {
+                            lastCheckId = integer.intValue();
+                        }
+                        return filter;
                     }
                 })
                 .subscribe(new Consumer<Integer>() {
@@ -101,7 +110,6 @@ public class MainActivity extends BaseActivity {
                             default:
                                 break;
                         }
-                        LogUtils.d("=================");
                         ft.commit();
                         lastFragment = fragment;
                     }
