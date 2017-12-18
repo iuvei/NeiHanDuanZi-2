@@ -8,9 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.RadioGroup;
 
-import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
 import com.weibo.neihanduanzi.adapter.NavViewPagerFragmentAdapter;
 import com.weibo.neihanduanzi.api.ApiService;
@@ -47,7 +45,6 @@ public class HomeFragment extends BaseFragment {
     private List<String> titleDataList;
     private List<Fragment> fragmentList;
     private MainActivity mainActivity;
-    private RadioGroup rg_top_nav;
     private MagicIndicator home_top_indicator;
     private ViewPager home_viewpager;
     @Inject
@@ -66,29 +63,12 @@ public class HomeFragment extends BaseFragment {
     @Override
     protected void findView() {
         home_viewpager = find(R.id.home_viewpager);
-        rg_top_nav = find(R.id.rg_top_nav);
         home_top_indicator = find(R.id.home_top_indicator);
     }
 
     @Override
     protected void listener() {
-        RxRadioGroup.checkedChanges(rg_top_nav)
-                .compose(this.<Integer>bindToLifecycle())
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer integer) throws Exception {
-                        int id = integer.intValue();
-                        rg_top_nav.check(id);
-                        switch (id) {
-                            case R.id.rb_featured:
-                                break;
-                            case R.id.rb_attention:
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                });
+
     }
 
     @Override

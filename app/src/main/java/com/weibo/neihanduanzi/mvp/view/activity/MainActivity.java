@@ -9,10 +9,13 @@ import com.jakewharton.rxbinding2.widget.RxRadioGroup;
 import com.weibo.neihanduanzi.R;
 import com.weibo.neihanduanzi.mvp.view.fragment.AuditFragment;
 import com.weibo.neihanduanzi.mvp.view.fragment.DiscoveryFragment;
+import com.weibo.neihanduanzi.mvp.view.fragment.DuanYouXiuFragment;
 import com.weibo.neihanduanzi.mvp.view.fragment.HomeFragment;
-import com.weibo.neihanduanzi.mvp.view.fragment.MsgFragment;
+import com.weibo.neihanduanzi.mvp.view.fragment.MyFragment;
+import com.weibo.neihanduanzi.util.LogUtils;
 
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Predicate;
 
 /**
  * Created by wxjqgt on 2017/12/6.
@@ -34,6 +37,17 @@ public class MainActivity extends BaseActivity {
         fm = getSupportFragmentManager();
         RxRadioGroup.checkedChanges(rb_bottom_navbar)
                 .compose(this.<Integer>bindToLifecycle())
+                .filter(new Predicate<Integer>() {
+                    @Override
+                    public boolean test(Integer integer) throws Exception {
+                        /**
+                         * R.id.rb_add 是发文章按钮的id，也就是下方导航栏的大＋按钮
+                         * 需要过滤掉，不需要响应显示fragment
+                         * @return 返回true表示通过，false表示拦截不给通过
+                         */
+                        return integer.intValue() != R.id.rb_add;
+                    }
+                })
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
@@ -54,6 +68,16 @@ public class MainActivity extends BaseActivity {
                                     ft.add(R.id.fragment, fragment, tag);
                                 }
                                 break;
+                            case R.id.rb_duanyouxiu:
+                                tag = AuditFragment.TAG;
+                                fragment = fm.findFragmentByTag(tag);
+                                if (fragment != null) {
+                                    ft.show(fragment);
+                                } else {
+                                    fragment = DuanYouXiuFragment.newInstance();
+                                    ft.add(R.id.fragment, fragment, tag);
+                                }
+                                break;
                             case R.id.rb_discover:
                                 tag = DiscoveryFragment.TAG;
                                 fragment = fm.findFragmentByTag(tag);
@@ -64,31 +88,22 @@ public class MainActivity extends BaseActivity {
                                     ft.add(R.id.fragment, fragment, tag);
                                 }
                                 break;
-                            case R.id.rb_audit:
-                                tag = AuditFragment.TAG;
+                            case R.id.rb_my:
+                                tag = MyFragment.TAG;
                                 fragment = fm.findFragmentByTag(tag);
                                 if (fragment != null) {
                                     ft.show(fragment);
                                 } else {
-                                    fragment = AuditFragment.newInstance();
-                                    ft.add(R.id.fragment, fragment, tag);
-                                }
-                                break;
-                            case R.id.rb_message:
-                                tag = MsgFragment.TAG;
-                                fragment = fm.findFragmentByTag(tag);
-                                if (fragment != null) {
-                                    ft.show(fragment);
-                                } else {
-                                    fragment = MsgFragment.newInstance();
+                                    fragment = MyFragment.newInstance();
                                     ft.add(R.id.fragment, fragment, tag);
                                 }
                                 break;
                             default:
                                 break;
                         }
-                        lastFragment = fragment;
+                        LogUtils.d("=================");
                         ft.commit();
+                        lastFragment = fragment;
                     }
                 });
     }
