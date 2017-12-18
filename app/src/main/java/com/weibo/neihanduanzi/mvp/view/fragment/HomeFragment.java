@@ -13,6 +13,7 @@ import com.weibo.neihanduanzi.R;
 import com.weibo.neihanduanzi.adapter.NavViewPagerFragmentAdapter;
 import com.weibo.neihanduanzi.api.ApiService;
 import com.weibo.neihanduanzi.bean.home.Home_Top_Tabs;
+import com.weibo.neihanduanzi.bean.home.Tab;
 import com.weibo.neihanduanzi.mvp.view.activity.MainActivity;
 import com.weibo.neihanduanzi.util.OkHttpUtil;
 
@@ -30,8 +31,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -75,6 +79,25 @@ public class HomeFragment extends BaseFragment {
     protected void loadData() {
         fragmentList = new ArrayList<>();
         titleDataList = new ArrayList<>();
+        apiService.getTabs()
+                .compose(this.<Home_Top_Tabs>bindToLifecycle())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(new Function<Home_Top_Tabs, ObservableSource<Tab>>() {
+                    @Override
+                    public ObservableSource<Tab> apply(Home_Top_Tabs home_top_tabs) throws Exception {
+                        return Observable.fromIterable(home_top_tabs.getTabs());
+                    }
+                })
+                .subscribe(new Consumer<Tab>() {
+                    @Override
+                    public void accept(Tab tab) throws Exception {
+                        String name = tab.getName();
+                        //titleDataList.add(name);
+
+                    }
+                });
+
         fragmentList.add(AttentionFragment.newInstance());
         fragmentList.add(RecommendFragment.newInstance());
         fragmentList.add(VideoFragment.newInstance());
@@ -83,7 +106,6 @@ public class HomeFragment extends BaseFragment {
         fragmentList.add(DuanZiFragment.newInstance());
         fragmentList.add(GameFragment.newInstance());
         fragmentList.add(EssenceFragment.newInstance());
-        home_viewpager.setAdapter(new NavViewPagerFragmentAdapter(fragmentList, getFragmentManager()));
 
         titleDataList.add("关注");
         titleDataList.add("推荐");
@@ -93,6 +115,9 @@ public class HomeFragment extends BaseFragment {
         titleDataList.add("段子");
         titleDataList.add("游戏");
         titleDataList.add("精华");
+
+        home_viewpager.setAdapter(new NavViewPagerFragmentAdapter(fragmentList, getFragmentManager()));
+
         final CommonNavigator commonNavigator = new CommonNavigator(mainActivity);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
 
@@ -128,16 +153,6 @@ public class HomeFragment extends BaseFragment {
         home_top_indicator.setNavigator(commonNavigator);
         ViewPagerHelper.bind(home_top_indicator, home_viewpager);
 
-        apiService.getTabs()
-                .compose(this.<Home_Top_Tabs>bindToLifecycle())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Home_Top_Tabs>() {
-                    @Override
-                    public void accept(Home_Top_Tabs home_top_tab) throws Exception {
-
-                    }
-                });
     }
 
     @Override

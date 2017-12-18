@@ -11,12 +11,12 @@ import com.weibo.neihanduanzi.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SameCityFragment#newInstance} factory method to
+ * Use the {@link LocalFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SameCityFragment extends Fragment {
+public class LocalFragment extends Fragment {
 
-    public SameCityFragment() {
+    public LocalFragment() {
         // Required empty public constructor
     }
 
@@ -27,8 +27,8 @@ public class SameCityFragment extends Fragment {
      * @return A new instance of fragment SameCityFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SameCityFragment newInstance() {
-        SameCityFragment fragment = new SameCityFragment();
+    public static LocalFragment newInstance() {
+        LocalFragment fragment = new LocalFragment();
         return fragment;
     }
 
