@@ -8,6 +8,7 @@ ext{
     ijkplayer_version           = '0.8.4'
     DanmuFlameMaster_version    = '0.9.16'
     support_version             = '27.0.2'
+    buildToolsVersion           = '26.0.2'
     kotlin_version              = '1.1.51'
     rxjava_version              = '2.1.7'
     rxandroid_version           = '2.0.1'
@@ -17,8 +18,8 @@ ext{
     rxpermissions_version       = '0.9.4'
 
     minSdkVersion               = 15
-    compileSdkVersion           = 27
-    targetSdkVersion            = 27
+    compileSdkVersion           = 26
+    targetSdkVersion            = 26
 
     kotlinStdlib                = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     kotlinPoet                  = 'com.squareup:kotlinpoet:0.4.0'

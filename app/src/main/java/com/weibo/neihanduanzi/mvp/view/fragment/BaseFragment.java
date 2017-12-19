@@ -1,6 +1,7 @@
 package com.weibo.neihanduanzi.mvp.view.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +55,7 @@ public abstract class BaseFragment extends RxFragment {
     protected void loadData() {
     }
 
+    @LayoutRes
     protected abstract int getLayoutId();
 
     protected <T extends View> T find(int id) {

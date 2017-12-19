@@ -28,12 +28,11 @@ android {
             path "CMakeLists.txt"
         }
     }
-    buildToolsVersion '26.0.2'
+    buildToolsVersion rootProject.ext.buildToolsVersion
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:support-v4:27.+'
     testImplementation rootProject.ext.junit
     androidTestImplementation rootProject.ext.supportTestRunner
     androidTestImplementation rootProject.ext.supportTestEspresso

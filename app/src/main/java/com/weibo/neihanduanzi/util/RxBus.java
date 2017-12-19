@@ -3,6 +3,19 @@ package com.weibo.neihanduanzi.util;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 
+import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.Scheduler;
@@ -15,19 +28,6 @@ import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
 import io.reactivex.subjects.Subject;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.reactivestreams.Publisher;
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
 
 /**
  * Created by wxjqgt on 2016/6/6.
@@ -57,11 +57,11 @@ public final class RxBus {
     public static final int TRAMPOLINE = 0x5;
 
     public static RxBus getDefault() {
-        return RxBusHelper.instance;
+        return RxBusHelper.INSTANCE;
     }
 
     private static class RxBusHelper {
-        private static final RxBus instance = new RxBus();
+        private static final RxBus INSTANCE = new RxBus();
     }
 
     //发布者

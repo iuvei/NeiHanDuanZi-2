@@ -13,11 +13,11 @@ public final class OkHttpUtil {
     }
 
     public static HttpComponent build() {
-        return OkHttpComponentHolder.httpComponent;
+        return OkHttpComponentHolder.HTTP_COMPONENT;
     }
 
     private final static class OkHttpComponentHolder{
-        private final static HttpComponent httpComponent = DaggerHttpComponent.create();
+        private final static HttpComponent HTTP_COMPONENT = DaggerHttpComponent.create();
     }
 
 }

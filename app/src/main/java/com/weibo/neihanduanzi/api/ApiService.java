@@ -7,6 +7,7 @@ import retrofit2.http.GET;
 
 /**
  * Created by Administrator on 2017/12/12.
+ * @author weibo
  */
 
 public interface ApiService {

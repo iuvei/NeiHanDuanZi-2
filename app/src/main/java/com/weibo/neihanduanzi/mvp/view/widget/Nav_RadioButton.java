@@ -14,7 +14,10 @@ import com.weibo.neihanduanzi.R;
 
 public class Nav_RadioButton extends AppCompatRadioButton {
 
-    private int mDrawableSize;// xml文件中设置的大小
+    /**
+     * xml文件中设置的大小
+     */
+    private int mDrawableSize;
 
     public Nav_RadioButton(Context context) {
         this(context, null, 0);
@@ -25,7 +28,7 @@ public class Nav_RadioButton extends AppCompatRadioButton {
     }
 
     public Nav_RadioButton(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);//TODO Auto-generated constructor stub
+        super(context, attrs, defStyle);
         Drawable drawableLeft = null, drawableTop = null,
                 drawableRight = null, drawableBottom = null;
         TypedArray a = context.obtainStyledAttributes(
@@ -56,11 +59,11 @@ public class Nav_RadioButton extends AppCompatRadioButton {
         }
         //回收
         a.recycle();
-        setCompoundDrawablesWithIntrinsicBounds(
+        setCustomCompoundDrawablesWithIntrinsicBounds(
                 drawableLeft, drawableTop, drawableRight, drawableBottom);
     }
 
-    public void setCompoundDrawablesWithIntrinsicBounds(
+    public void setCustomCompoundDrawablesWithIntrinsicBounds(
             Drawable left, Drawable top, Drawable right, Drawable bottom) {
         if (mDrawableSize == 0){
             mDrawableSize = 30;

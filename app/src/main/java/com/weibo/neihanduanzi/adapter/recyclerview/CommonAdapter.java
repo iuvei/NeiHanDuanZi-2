@@ -14,12 +14,12 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder>{
 
     private List<T> datas;
     private Context context;
-    private int LayoutId;
+    private int layoutId;
 
-    public CommonAdapter(Context context,int LayoutId,List<T> datas) {
+    public CommonAdapter(Context context,int layoutId,List<T> datas) {
         this.context = context;
         this.datas = datas;
-        this.LayoutId = LayoutId;
+        this.layoutId = layoutId;
     }
 
     public void addDatas(List<T> datas){
@@ -39,7 +39,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder>{
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return ViewHolder.createViewHolder(context, LayoutInflater.from(context).inflate(LayoutId,parent,false));
+        return ViewHolder.createViewHolder(context, LayoutInflater.from(context).inflate(layoutId,parent,false));
     }
 
     @Override

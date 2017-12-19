@@ -206,9 +206,13 @@ public final class LogUtils {
     }
 
     private static void log(final int type, final String tag, final Object... contents) {
-        if (!sLogSwitch || (!sLog2ConsoleSwitch && !sLog2FileSwitch)) return;
+        if (!sLogSwitch || (!sLog2ConsoleSwitch && !sLog2FileSwitch)) {
+            return;
+        }
         int type_low = type & 0x0f, type_high = type & 0xf0;
-        if (type_low < sConsoleFilter && type_low < sFileFilter) return;
+        if (type_low < sConsoleFilter && type_low < sFileFilter) {
+            return;
+        }
         final TagHead tagHead = processTagAndHead(tag);
         String body = processBody(type_high, contents);
         if (sLog2ConsoleSwitch && type_low >= sConsoleFilter && type_high != FILE) {
@@ -242,7 +246,9 @@ public final class LogUtils {
                 int index = fileName.indexOf('.');// 混淆可能导致文件名被改变从而找不到"."
                 className = index == -1 ? fileName : fileName.substring(0, index);
             }
-            if (sTagIsSpace) tag = isSpace(tag) ? className : tag;
+            if (sTagIsSpace){
+                tag = isSpace(tag) ? className : tag;
+            }
             if (sLogHeadSwitch) {
                 String tName = Thread.currentThread().getName();
                 final String head = new Formatter()
@@ -282,7 +288,9 @@ public final class LogUtils {
         if (contents != null) {
             if (contents.length == 1) {
                 Object object = contents[0];
-                if (object != null) body = object.toString();
+                if (object != null) {
+                    body = object.toString();
+                }
                 if (type == JSON) {
                     body = formatJson(body);
                 } else if (type == XML) {
@@ -352,7 +360,9 @@ public final class LogUtils {
             for (String aHead : head) {
                 Log.println(type, tag, sLogBorderSwitch ? LEFT_BORDER + aHead : aHead);
             }
-            if (sLogBorderSwitch) Log.println(type, tag, MIDDLE_BORDER);
+            if (sLogBorderSwitch) {
+                Log.println(type, tag, MIDDLE_BORDER);
+            }
         }
     }
 
@@ -412,11 +422,17 @@ public final class LogUtils {
 
     private static boolean createOrExistsFile(final String filePath) {
         File file = new File(filePath);
-        if (file.exists()) return file.isFile();
-        if (!createOrExistsDir(file.getParentFile())) return false;
+        if (file.exists()) {
+            return file.isFile();
+        }
+        if (!createOrExistsDir(file.getParentFile())) {
+            return false;
+        }
         try {
             boolean isCreate = file.createNewFile();
-            if (isCreate) printDeviceInfo(filePath);
+            if (isCreate) {
+                printDeviceInfo(filePath);
+            }
             return isCreate;
         } catch (IOException e) {
             e.printStackTrace();
@@ -453,7 +469,9 @@ public final class LogUtils {
     }
 
     private static boolean isSpace(final String s) {
-        if (s == null) return true;
+        if (s == null) {
+            return true;
+        }
         for (int i = 0, len = s.length(); i < len; ++i) {
             if (!Character.isWhitespace(s.charAt(i))) {
                 return false;
@@ -500,11 +518,13 @@ public final class LogUtils {
 
     public static class Config {
         private Config() {
-            if (sDefaultDir != null) return;
+            if (sDefaultDir != null) {
+                return;
+            }
             if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
-                    && NeiHanDuanZiApplication.getContext().getExternalCacheDir() != null)
+                    && NeiHanDuanZiApplication.getContext().getExternalCacheDir() != null){
                 sDefaultDir = NeiHanDuanZiApplication.getContext().getExternalCacheDir() + FILE_SEP + "log" + FILE_SEP;
-            else {
+            } else {
                 sDefaultDir = NeiHanDuanZiApplication.getContext().getCacheDir() + FILE_SEP + "log" + FILE_SEP;
             }
         }
