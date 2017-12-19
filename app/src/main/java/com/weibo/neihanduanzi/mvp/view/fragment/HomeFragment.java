@@ -15,6 +15,7 @@ import com.weibo.neihanduanzi.api.ApiService;
 import com.weibo.neihanduanzi.bean.home.Home_Top_Tabs;
 import com.weibo.neihanduanzi.bean.home.Tab;
 import com.weibo.neihanduanzi.mvp.view.activity.MainActivity;
+import com.weibo.neihanduanzi.util.LogUtils;
 import com.weibo.neihanduanzi.util.OkHttpUtil;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -94,7 +95,7 @@ public class HomeFragment extends BaseFragment {
                     public void accept(Tab tab) throws Exception {
                         String name = tab.getName();
                         //titleDataList.add(name);
-
+                        LogUtils.d(name);
                     }
                 });
 

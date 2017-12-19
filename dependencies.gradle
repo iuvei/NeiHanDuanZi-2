@@ -7,7 +7,7 @@ ext{
     dagger2_version             = '2.13'
     ijkplayer_version           = '0.8.4'
     DanmuFlameMaster_version    = '0.9.16'
-    support_version             = '27.0.2'
+    support_version             = '26.0.0-beta1'
     buildToolsVersion           = '26.0.2'
     kotlin_version              = '1.1.51'
     rxjava_version              = '2.1.7'
